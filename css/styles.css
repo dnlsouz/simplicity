@@ -108,5 +108,16 @@ nav h2 a:focus, .menu a:hover,
     position: absolute;
     left: 0;
     right: 0;
+
+}
+
+.destaque {
+    height: 500px;
+    background-image: url(../imagens/fundo-destaque.jpg);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     
 }
