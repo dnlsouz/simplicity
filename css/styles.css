@@ -1,3 +1,69 @@
-body { 
-    background-color: lightblue;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@700;800&display=swap');
+
+* {
+    box-sizing: border-box;
 }
+
+
+:root {
+    --cor-titulo: #4d4d4d;
+    --cor-texto: #333;
+    --cor-escura: #000;
+    --cor-clara: #fff;
+    --cor-intermediaria: #ececec;
+
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: var(--cor-texto);
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--cor-clara);
+}
+
+/* CSS Reset em alguns */
+body,
+h1,
+h2,
+p,
+figure,
+.menu {
+    margin: 0;
+    padding: 0;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-family: Raleway, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1, 5rem;
+}
+
+h1 a {
+    color: var(--cor-clara);
+    background-color: var(--cor-escura);
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu { list-style: none;}
