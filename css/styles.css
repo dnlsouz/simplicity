@@ -83,6 +83,7 @@ nav h2 a:focus, .menu a:hover,
 
 .menu {
     list-style: none;
+    display: none;
 }
 
 /* Regra para formata os links contidos na lista/menu  */
@@ -97,4 +98,15 @@ nav h2 a:focus, .menu a:hover,
     height: 50px;
 
 
+}
+
+.menu.aberto {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-clara);
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    
 }
