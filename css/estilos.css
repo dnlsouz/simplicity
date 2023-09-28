@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@700;800&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+    /* Variáveis para a 
+    paleta de cores do site */
+    --cor-titulo: #4d4d4d;
+    --cor-texto: #333;
+    --cor-escura: #000;
+    --cor-clara: #fff;
+    --cor-intermediaria: #ececec;
+}
+
+html { font-size: 16px; }
+
+
+body {
+    color: var(--cor-texto);
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--cor-clara);
+}
+
+/* CSS Reset em alguns elementos */
+body, h1, h2, p, figure, .menu {
+    margin: 0;
+    padding: 0;
+}
+
+img { max-width: 100%; }
+
+h1 {
+    font-family: Raleway, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+h1 a {
+    color: var(--cor-clara);
+    background-color: var(--cor-escura);
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+}
+
+a { text-decoration: none; }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12vh;
+}
+
+
+/* Formatação da palavra Menu */
+nav h2 a {
+    color: var(--cor-escura);
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+nav h2 a:hover, nav h2 a:focus, 
+.menu a:hover, .menu a:focus {
+    background-color: var(--cor-intermediaria);
+}
+
+/* Regra da lista ul de links */
+.menu { 
+    list-style: none; 
+
+    /* ATENÇÃO!
+    Usamos display:none para
+    não exibir inicialmente
+    a lista de links. */
+    display: none;
+}
+
+/* Regra para formatar os
+links contidos na lista/menu */
+.menu a {
+    color: var(--cor-escura);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;    
+}
+
+
+
+/* Seletor de classes combinadas
+Esta regra somente irá funcionar quando
+AS DUAS CLASSES estiverem aplicadas JUNTAS no
+elemento HTML (no caso, na lista de menu/links). 
+
+Obs.: esta combinação será possível por meio
+da manipulação programada com JavaScript. */
+.menu.aberto {
+
+    /* O Flex fará a lista de links aparecer */
+    display: flex;
+
+    /* Com os links em forma de coluna (vertical) */
+    flex-direction: column;
+    
+    /* Usamos as propriedades de posicionamento
+    e coordenadas para garantir o encaixe correto
+    (abaixo do título e da palavra Menu). */
+    position: absolute;
+    left: 0;
+    right: 0;
+    
+    /* Aplicamos um fundo à lista evitando a
+    dificuldade de leitura dos links */
+    background-color: var(--cor-clara);
+}
+
+/* Exercícios */
+
+/* 1) Crie uma regra CSS para formatar o artigo/seção de Destaque com as seguintes configurações:
+
+-Altura de uns 500px
+-Imagem de fundo (fundo-destaque)
+-Imagem de fundo deve ficar parada
+-Flex com alinhamento totalmente centralizado, e um elemento em cima do outro (ou seja, em modo coluna) */
+.destaque {
+    height: 88vh;
+    background-image: url(../imagens/fundo-destaque.jpg);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 2) Crie uma regra CSS para formatar o h2 e o p
+contidos em Destaque. Faça com que os textos
+fiquem centralizados e com a cor clara */
+.destaque h2, .destaque p { 
+    text-align: center;
+    color: var(--cor-clara);
+
+    animation-name: animaDestaque;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.destaque h2 {
+    font-size: clamp(3rem, 10vw, 7rem);
+}
+
+.destaque p {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* Regra de animação */
+@keyframes animaDestaque {
+    from { 
+        opacity: 0; 
+        transform: translateY(-600px);
+    }
+    
+    to { opacity: 1; }
+}
+
+article h2 {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: Raleway, sans-serif;
+    color: var(--cor-titulo);
+}
+
+.front-end, .historia, .localizacao {
+    text-align: center;
+}
+
+article p {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+abbr {
+    text-decoration: none;
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+address { font-style: normal; }
+
+
+/* Correção dos exercícios */
+
+/* 1) Crie uma regra para formatar o artigo de História da Internet com:
+- Plano de fundo: imagem "fundo-madeira"
+- Deixe a imagem parada e cobrindo todo o espaço do artigo */
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-attachment: fixed;
+}
+
+/* 2) Crie uma regra para formatar o titulo "História da Internet" com cor clara e uma sombra no texto. */
+.historia h2 {
+    color: var(--cor-clara);
+    text-shadow: var(--cor-escura) 2px 2px 4px;
+}
+
+/* 3) Crie uma regra para formatar o vídeo do artigo História da Internet com:
+- Largura de 100%
+- Largura máxima de 700px
+- Margem inferior de 2rem */
+.historia iframe {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+/* 4) Crie uma regra para formatar o mapa da Localização com:
+- Largura de 100%
+- Margem superior de 2rem */
+.localizacao iframe {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* 5) Crie uma classe chamada "limitador" com largura de 95vw e margem automática. Aplique esta classe no cabeçalho e no artigo front-end. */
+.limitador {
+    width: 95vw;
+    margin: auto;
+}
+
+/* 6) Crie uma regra para o rodapé com:
+- Fundo escuro
+- Cor do texto clara
+- Altura de 30vh
+- Negrito
+- Flex com centralização total
+- Texto centralizado */
+footer {
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    height: 30vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
