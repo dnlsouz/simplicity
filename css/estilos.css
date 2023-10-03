@@ -59,6 +59,8 @@ header {
 
     position: sticky;
     top: 0;
+    /* z-index garante que a imagem fica por baixo do cabeçalho */
+    z-index: 100;
     background-color: var(--cor-clara);
 }
 
@@ -322,6 +324,16 @@ tr:nth-child(odd) {
     background-color: var(--cor-clara);
 }
 
+/* Pseudo elemento  ::before (::after) */
+td:last-child { position: relative;}
+td:last-child::before {
+    content: "R$";
+    position: absolute;
+    left: 10px;
+
+}
+
+.conteudo h2::before { content: "👽";}
 
 
 /* Exercicios: regras condicionais ( Media Queries) */
@@ -348,7 +360,27 @@ nav { width: 70%;}
 
 }
 
-    
+figure{ text-align: center;}
+
+.redondo img  {
+    padding: 10px;
+    border-radius: 50%;
+
+}
+
+
+/* Aplicamos o :hover e o :focus ao seletor de tag "a" em vez de aplicar no "img". Desta forma, o acionamneto funcionara tanto com mouse quanto com teclado. */
+
+.redondo img:hover  {
+    border-radius: 15px;
+    transform: scale(1.1);
+    transition: 300ms;
+    filter: blur(1px)  brightness( 150%);
+
+
+
+
+}
 
 
 
@@ -365,6 +397,9 @@ nav { width: 70%;}
    .limitador {max-width: 1000px;} 
 
 }
+
+
+
     
 
 
