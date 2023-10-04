@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@700;800&display=swap');
 
-* { box-sizing: border-box; }
+/* Pra não ter dor de cabeça com medidas, o "*" vale pra todos elementos */
+* {
+    box-sizing: border-box;
+}
 
+/* Reset do CSS */
+body, h1, h2, p, figure, .menu {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Declaração de variáveis */
 :root {
-    /* Variáveis para a 
-    paleta de cores do site */
     --cor-titulo: #4d4d4d;
     --cor-texto: #333;
     --cor-escura: #000;
@@ -12,8 +21,12 @@
     --cor-intermediaria: #ececec;
 }
 
-html { font-size: 16px; }
+/* Apontando o padrão de tamnho do HTML (raiz) */
+html {
+    font-size: 16px;
+}
 
+/*  Estilização */
 
 body {
     color: var(--cor-texto);
@@ -21,14 +34,11 @@ body {
     background-color: var(--cor-clara);
 }
 
-/* CSS Reset em alguns elementos */
-body, h1, h2, p, figure, .menu {
-    margin: 0;
-    padding: 0;
+img {
+    max-width: 100%;
 }
 
-img { max-width: 100%; }
-
+/* Formatação de Letra */
 h1 {
     font-family: Raleway, sans-serif;
     text-transform: uppercase;
@@ -36,36 +46,36 @@ h1 {
     font-size: 1.5rem;
 }
 
+/* Formatação do Link no H1 */
+
 h1 a {
     color: var(--cor-clara);
     background-color: var(--cor-escura);
     padding: 0.3rem 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 a { text-decoration: none; }
 
-header .limitador{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 12vh;
-    
-}
-
-
-
 header {
-
     position: sticky;
     top: 0;
-    /* z-index garante que a imagem fica por baixo do cabeçalho */
     z-index: 100;
     background-color: var(--cor-clara);
 }
 
+/*  Regra da lista de links */
+
+.menu {
+    list-style: none;
+    /* ATENÇÃO!
+    Usamos display:none para não exibir
+    inicialmente a lista de links. */
+    display: none;
+}
 
 /* Formatação da palavra Menu */
+
 nav h2 a {
     color: var(--cor-escura);
     font-size: 1.2rem;
@@ -73,42 +83,37 @@ nav h2 a {
     display: inline-block;
 }
 
-nav h2 a:hover, nav h2 a:focus, 
-.menu a:hover, .menu a:focus {
-    background-color: var(--cor-intermediaria);
+
+/* || Hover: mouse || Focus: tab/teclado || */
+nav h2 a:hover, nav h2 a:focus, .menu a:hover, .menu a:focus {
+    background-color: var(--cor-intermediaria)  ;
 }
 
-/* Regra da lista ul de links */
-.menu { 
-    list-style: none; 
-
-    /* ATENÇÃO!
-    Usamos display:none para
-    não exibir inicialmente
-    a lista de links. */
-    display: none;
-}
-
-/* Regra para formatar os
-links contidos na lista/menu */
+/* Regra para formatar os links contidos na lista/menu */
 .menu a {
+    /* Mini-Exercício
+    Faça as seguintes alterações:display: 
+    - cor do texto escura
+    - negrito
+    - flex com centralização total
+    - altura de 50px */
+
     color: var(--cor-escura);
     font-weight: bold;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 50px;    
+    justify-content: center;
+    height: 50px;
 }
 
 
-
-/* Seletor de classes combinadas
+/* Seletor de classes combinada
 Esta regra somente irá funcionar quando
 AS DUAS CLASSES estiverem aplicadas JUNTAS no
-elemento HTML (no caso, na lista de menu/links). 
+elemento HTM (no caso, na lista de menu/links).
 
 Obs.: esta combinação será possível por meio
-da manipulação programada com JavaScript. */
+da manipulação programada com JavaScript*/
 .menu.aberto {
 
     /* O Flex fará a lista de links aparecer */
@@ -116,27 +121,31 @@ da manipulação programada com JavaScript. */
 
     /* Com os links em forma de coluna (vertical) */
     flex-direction: column;
-    
+
+    /*  Aplicamos um fundo à lista evitando a
+    dificuldade de leitura dos links */
+    background-color: var(--cor-clara);
+
     /* Usamos as propriedades de posicionamento
     e coordenadas para garantir o encaixe correto
-    (abaixo do título e da palavra Menu). */
+    (abaixo  do título e da palavra Menu) */
     position: absolute;
     left: 0;
     right: 0;
-    
-    /* Aplicamos um fundo à lista evitando a
-    dificuldade de leitura dos links */
-    background-color: var(--cor-clara);
 }
+
 
 /* Exercícios */
 
-/* 1) Crie uma regra CSS para formatar o artigo/seção de Destaque com as seguintes configurações:
+/* 1) Crie uma regra CSS para formatar o artigo/seção de
+Destaque com as seguintes configurações::after
 
--Altura de uns 500px
--Imagem de fundo (fundo-destaque)
--Imagem de fundo deve ficar parada
--Flex com alinhamento totalmente centralizado, e um elemento em cima do outro (ou seja, em modo coluna) */
+- Altura de uns 500px
+- Imagem de fundo (fundo-destaque)
+- Imagem de fundo deve ficar parada
+- Flex com alinhamento totalmente centralizado, e um
+elemento em cima do outro (ou seja, em modo coluna */
+
 .destaque {
     height: 88vh;
     background-image: url(../imagens/fundo-destaque.jpg);
@@ -145,36 +154,44 @@ da manipulação programada com JavaScript. */
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-size: cover;
+
 }
 
-/* 2) Crie uma regra CSS para formatar o h2 e o p
-contidos em Destaque. Faça com que os textos
-fiquem centralizados e com a cor clara */
-.destaque h2, .destaque p { 
-    text-align: center;
-    color: var(--cor-clara);
+/* 2) Crie uma regra CSS para formatar o h2 e o p contidos em Destaque. Faça com que os textos fiquem centralizados e com a cor clara */
 
+.destaque h2, .destaque p  {
+    color: var(--cor-clara);
+    text-align: center;
     animation-name: animaDestaque;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+    animation-duration: 3s;
+    transition: all 500ms cubic-bezier(0.000, 1.000, 0.990, 0.980); /* custom */
+    transition-timing-function: cubic-bezier(0.000, 1.000, 0.990, 0.980); /* custom */
 }
 
 .destaque h2 {
-    font-size: clamp(3rem, 10vw, 7rem);
+    /* Função clamp(
+        tamanho minimo,
+        tamanho ideal,
+        tamanho máximo) */
+    font-size: clamp(2.5rem, 10vw, 7rem);
 }
 
 .destaque p {
     font-size: clamp(1.5rem, 3vw, 3rem);
 }
 
-/* Regra de animação */
+/* .historia iframe {
+    width: clamp(26rem, 10vw, 50rem);
+    height: clamp(26rem, 10vh, 50rem);
+} */
+
 @keyframes animaDestaque {
-    from { 
-        opacity: 0; 
-        transform: translateY(-600px);
+    from {
+        Opacity: 0;
+        transform: translateY(-500px);
     }
-    
-    to { opacity: 1; }
+    to { opacity: 1;}
 }
 
 article h2 {
@@ -191,22 +208,21 @@ article h2 {
 article p {
     padding: 0.5rem 0;
     font-size: 1.2rem;
+
 }
 
 abbr {
     text-decoration: none;
     background-color: var(--cor-escura);
     color: var(--cor-clara);
-    padding: 0 2px;
+    padding: 0 5px;
     border-radius: 4px;
 }
 
-address { font-style: normal; }
 
-
-/* Correção dos exercícios */
-
-/* 1) Crie uma regra para formatar o artigo de História da Internet com:
+/* Enunciados
+    
+1) Crie uma regra para formatar o artigo de História da Internet com:
 - Plano de fundo: imagem "fundo-madeira"
 - Deixe a imagem parada e cobrindo todo o espaço do artigo */
 .historia {
@@ -214,44 +230,63 @@ address { font-style: normal; }
     background-attachment: fixed;
 }
 
-/* 2) Crie uma regra para formatar o titulo "História da Internet" com cor clara e uma sombra no texto. */
+/* 
+2) Crie uma regra para formatar o titulo "História da Internet" com cor clara e uma sombra no texto.*/
+
 .historia h2 {
     color: var(--cor-clara);
-    text-shadow: var(--cor-escura) 2px 2px 4px;
+    text-shadow: var(--cor-escura) 0px 0px 10px;
 }
 
-/* 3) Crie uma regra para formatar o vídeo do artigo História da Internet com:
+/* 
+3) Crie uma regra para formatar o vídeo do artigo História da Internet com:
 - Largura de 100%
 - Largura máxima de 700px
-- Margem inferior de 2rem */
+- Margem inferior de 2rem*/
+
 .historia iframe {
     width: 100%;
     max-width: 700px;
     margin-bottom: 2rem;
 }
 
-/* 4) Crie uma regra para formatar o mapa da Localização com:
+/* 
+4) Crie uma regra para formatar o mapa da Localização com:
 - Largura de 100%
-- Margem superior de 2rem */
+- Margem superior de 2rem*/
+
 .localizacao iframe {
     width: 100%;
     margin-top: 2rem;
 }
 
-/* 5) Crie uma classe chamada "limitador" com largura de 95vw e margem automática. Aplique esta classe no cabeçalho e no artigo front-end. */
+/* 
+5) Crie uma classe chamada "limitador" com largura de 95vw e margem automática. 
+Aplique esta classe no cabeçalho e no artigo front-end.*/
+
 .limitador {
     width: 95vw;
     margin: auto;
-}
     
+}
 
-/* 6) Crie uma regra para o rodapé com:
+
+header .limitador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12vh;
+}
+
+/* 
+6) Crie uma regra para o rodapé com:
 - Fundo escuro
 - Cor do texto clara
 - Altura de 30vh
 - Negrito
 - Flex com centralização total
 - Texto centralizado */
+
 footer {
     background-color: var(--cor-escura);
     color: var(--cor-clara);
@@ -263,157 +298,186 @@ footer {
     text-align: center;
 }
 
-.conteudo {
+
+/* Regras para as páginas Produtos, Serviços e Contato */
+
+.conteudo, .servicos, .contato {
     background-color: var(--cor-intermediaria);
     padding: 0.5rem;
     border-radius: 8px;
 }
 
-
-.conteudo h2 {
-    padding-left: 0;
+.conteudo h2, .servicos h2 {
+    padding: 0;
     font-size: 1.8rem;
     border-bottom: solid 1px;
     margin-bottom: 1rem;
-    
 }
 
 table {
     width: 80%;
     margin: auto;
-    border: solid 1px;
-
 }
 
-table,th,td {
-    border: solid 1px;
-
-    /* Remove o espaço entre bordas  */
-    border-collapse: collapse;
-
-
+table, th, td {
+    border: solid 2px;
+    border-collapse: collapse; /* Remove o espaço entre as bordas */
 }
+
 
 caption {
-
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.1rem;
     padding-bottom: 0.5rem;
 }
 
-th { 
+th {
     background-color: var(--cor-escura);
     color: var(--cor-clara);
     border-color: var(--cor-escura);
     padding: 0.7rem;
-
 }
 
-td {padding: 0.5rem;}
+td {
+    padding: 0.5rem;
+}
+
+th:first-child { text-align: left; }
 
 td:nth-child(2) { text-align: center;}
 
-th:last-child, td:last-child {
-    text-align: right;
-}
-
-th:first-child {text-align: left;}
+th:last-child, td:last-child { text-align: right;}
 
 tr:nth-child(odd) {
     background-color: var(--cor-clara);
 }
 
-/* Pseudo elemento  ::before (::after) */
+
+
+  /*  Paseudo-elemento ::before (::after) */
 td:last-child { position: relative;}
-td:last-child::before {
-    content: "R$";
+
+  td:last-child::before {
+    content: 'R$ ';
     position: absolute;
-    left: 10px;
+    left: 150px;
 
 }
 
-.conteudo h2::before { content: "👽";}
+/* ------------------------------------------------------------------- */
+.conteudo h2::before { content: "🛒 ";}
+.servicos h2::before { content: "🛠️ ";}
+.contato h2::before { content: "📧 ";}
+
+.boximg {
+    text-align: center;
+
+}
+
+.boximg img {
+    border-radius: 100%; 
+    transition: 1s;
+    transform: scale(0.9);
+}
+
+/* Aplicamos o :hover e o :focus ao seletor de tag "a" em vez de aplicar no "img". Desta forma, o acionamento funcionará tanto com mouse quanto com teclado. */
+.boximg a:hover img, a:focus img {
+    border-radius: 8%;
+    transform: scale(1);
+}
+/* ------------------------------------------------------------------- */
+
+ form {
+    max-width: 500px;
+    margin: auto;
+    background-color: lightblue;
+ }
+
+ input, select, textarea {
+    border: none;
+    padding: 4px;
+    height: 40px;
+    border-radius: 4px;
+ }
+
+ textarea { height: auto; }
+
+ form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+ }
+
+ label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: 30%;
+ }
 
 
-/* Exercicios: regras condicionais ( Media Queries) */
+ /* Pseudo-classe :not Permite criar exceções parauma regra. Nesete exemplo, estamos aplicando 70% de largura para tudo (*) dentro do "form div" EXCETO o "label". */
+ form div *:not(label) {
+    width: 70%;
+ }
+
+ button { 
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    border: none;
+    font-weight: bold;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+ }
+
+ button:hover, button:focus{
+    background-color: var(--cor-clara);
+    color: var(--cor-escura);
+    box-shadow: var(--cor-escura) 0 0 2px;
+ }
+ 
+
+
+/* ------------------------------------------------------------------- */
+/* Exercícios: regras condicionais (Media Queries) */
 
 /* 1) Crie uma regra condicional para telas a partir de 570px com as seguintes alterações
 
--Esconder a palavra Menu 
--Habilitar o flex para a classe "menu"
--Definir largura de 100% para os itens dentro do menu
--Definir largura de 70% para o nav
--Reduzir para 150px a altura da imagem contida no artigo Front-End  */
+- Esconder a palavra Menu
+- Habilitar o flex para a classe "menu"
+- Definir largura de 100% para os itens dentro do "menu"
+- Definir largura de 70% para o nav
+- Reduzir para 200px a altura da imagem contida no artigo Front-End*/
 
 @media screen and (min-width: 570px) {
+    nav h2 {display: none}
 
-    nav h2 { display: none;}
+    .menu {
+        display: flex;
+        
+    }
 
-.menu { display: flex; }
+    .menu li {
+        width: 100%;
+    }
 
-.menu li { width: 100%;}
+    nav {
+        width: 70%;
+    }
 
-nav { width: 70%;}
-
-.front-end img {height: 150px;}
-
+    .front-end img {
+        height: 150px;
+    }
 }
 
-figure{ text-align: center;}
+/* 2) Crie uma regra condicional para telas a partir de 900px com as seguimtes alterações:
+- Aumentar o tamanho geral de todos os textos para 18px
+- Definir o tamanho máximo da classe limitador para 1000px*/
 
-.redondo img  {
-    padding: 10px;
-    border-radius: 50%;
 
+@media screen and (min-width: 900px) {
+    html { font-size: 18px;}
+   .limitador { max-width: 1000px;}
 }
-
-
-/* Aplicamos o :hover e o :focus ao seletor de tag "a" em vez de aplicar no "img". Desta forma, o acionamneto funcionara tanto com mouse quanto com teclado. */
-
-.redondo img:hover  {
-    border-radius: 15px;
-    transform: scale(1.1);
-    transition: 300ms;
-    filter: blur(1px)  brightness( 150%);
-
-
-
-
-}
-
-
-
-/* 2) Crie uma regra condicional para telas a partir de 900px com as seguintes alterações : 
-
-
--Aumentar o tamanho geral de todos os textos para 18px
--Definir o tamanho máximo da classe limitador para 1000px*/
-
-@media screen and  ( min-width: 900px) {
-
-    html {font-size: 18px}
-
-   .limitador {max-width: 1000px;} 
-
-}
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
