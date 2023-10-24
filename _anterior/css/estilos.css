@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@700;800&display=swap');
+
+/* Pra não ter dor de cabeça com medidas, o "*" vale pra todos elementos */
+* {
+    box-sizing: border-box;
+}
+
+/* Reset do CSS */
+body, h1, h2, p, figure, .menu {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Declaração de variáveis */
+:root {
+    --cor-titulo: #4d4d4d;
+    --cor-texto: #333;
+    --cor-escura: #000;
+    --cor-clara: #fff;
+    --cor-intermediaria: #ececec;
+}
+
+/* Apontando o padrão de tamnho do HTML (raiz) */
+html {
+    font-size: 16px;
+}
+
+/*  Estilização */
+
+body {
+    color: var(--cor-texto);
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--cor-clara);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Formatação de Letra */
+h1 {
+    font-family: Raleway, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+/* Formatação do Link no H1 */
+
+h1 a {
+    color: var(--cor-clara);
+    background-color: var(--cor-escura);
+    padding: 0.3rem 1rem;
+    border-radius: 6px;
+}
+
+a { text-decoration: none; }
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--cor-clara);
+}
+
+/*  Regra da lista de links */
+
+.menu {
+    list-style: none;
+    /* ATENÇÃO!
+    Usamos display:none para não exibir
+    inicialmente a lista de links. */
+    display: none;
+}
+
+/* Formatação da palavra Menu */
+
+nav h2 a {
+    color: var(--cor-escura);
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+
+/* || Hover: mouse || Focus: tab/teclado || */
+nav h2 a:hover, nav h2 a:focus, .menu a:hover, .menu a:focus {
+    background-color: var(--cor-intermediaria)  ;
+}
+
+/* Regra para formatar os links contidos na lista/menu */
+.menu a {
+    /* Mini-Exercício
+    Faça as seguintes alterações:display: 
+    - cor do texto escura
+    - negrito
+    - flex com centralização total
+    - altura de 50px */
+
+    color: var(--cor-escura);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+
+/* Seletor de classes combinada
+Esta regra somente irá funcionar quando
+AS DUAS CLASSES estiverem aplicadas JUNTAS no
+elemento HTM (no caso, na lista de menu/links).
+
+Obs.: esta combinação será possível por meio
+da manipulação programada com JavaScript*/
+.menu.aberto {
+
+    /* O Flex fará a lista de links aparecer */
+    display: flex;
+
+    /* Com os links em forma de coluna (vertical) */
+    flex-direction: column;
+
+    /*  Aplicamos um fundo à lista evitando a
+    dificuldade de leitura dos links */
+    background-color: var(--cor-clara);
+
+    /* Usamos as propriedades de posicionamento
+    e coordenadas para garantir o encaixe correto
+    (abaixo  do título e da palavra Menu) */
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+
+/* Exercícios */
+
+/* 1) Crie uma regra CSS para formatar o artigo/seção de
+Destaque com as seguintes configurações::after
+
+- Altura de uns 500px
+- Imagem de fundo (fundo-destaque)
+- Imagem de fundo deve ficar parada
+- Flex com alinhamento totalmente centralizado, e um
+elemento em cima do outro (ou seja, em modo coluna */
+
+.destaque {
+    height: 88vh;
+    background-image: url(../imagens/fundo-destaque.jpg);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+
+}
+
+/* 2) Crie uma regra CSS para formatar o h2 e o p contidos em Destaque. Faça com que os textos fiquem centralizados e com a cor clara */
+
+.destaque h2, .destaque p  {
+    color: var(--cor-clara);
+    text-align: center;
+    animation-name: animaDestaque;
+    animation-duration: 3s;
+    transition: all 500ms cubic-bezier(0.000, 1.000, 0.990, 0.980); /* custom */
+    transition-timing-function: cubic-bezier(0.000, 1.000, 0.990, 0.980); /* custom */
+}
+
+.destaque h2 {
+    /* Função clamp(
+        tamanho minimo,
+        tamanho ideal,
+        tamanho máximo) */
+    font-size: clamp(2.5rem, 10vw, 7rem);
+}
+
+.destaque p {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* .historia iframe {
+    width: clamp(26rem, 10vw, 50rem);
+    height: clamp(26rem, 10vh, 50rem);
+} */
+
+@keyframes animaDestaque {
+    from {
+        Opacity: 0;
+        transform: translateY(-500px);
+    }
+    to { opacity: 1;}
+}
+
+article h2 {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: Raleway, sans-serif;
+    color: var(--cor-titulo);
+}
+
+.front-end, .historia, .localizacao {
+    text-align: center;
+}
+
+article p {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+
+}
+
+abbr {
+    text-decoration: none;
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    padding: 0 5px;
+    border-radius: 4px;
+}
+
+
+/* Enunciados
+    
+1) Crie uma regra para formatar o artigo de História da Internet com:
+- Plano de fundo: imagem "fundo-madeira"
+- Deixe a imagem parada e cobrindo todo o espaço do artigo */
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-attachment: fixed;
+}
+
+/* 
+2) Crie uma regra para formatar o titulo "História da Internet" com cor clara e uma sombra no texto.*/
+
+.historia h2 {
+    color: var(--cor-clara);
+    text-shadow: var(--cor-escura) 0px 0px 10px;
+}
+
+/* 
+3) Crie uma regra para formatar o vídeo do artigo História da Internet com:
+- Largura de 100%
+- Largura máxima de 700px
+- Margem inferior de 2rem*/
+
+.historia iframe {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+/* 
+4) Crie uma regra para formatar o mapa da Localização com:
+- Largura de 100%
+- Margem superior de 2rem*/
+
+.localizacao iframe {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* 
+5) Crie uma classe chamada "limitador" com largura de 95vw e margem automática. 
+Aplique esta classe no cabeçalho e no artigo front-end.*/
+
+.limitador {
+    width: 95vw;
+    margin: auto;
+    
+}
+
+
+header .limitador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12vh;
+}
+
+/* 
+6) Crie uma regra para o rodapé com:
+- Fundo escuro
+- Cor do texto clara
+- Altura de 30vh
+- Negrito
+- Flex com centralização total
+- Texto centralizado */
+
+footer {
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    height: 30vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Regras para as páginas Produtos, Serviços e Contato */
+
+.conteudo, .servicos, .contato {
+    background-color: var(--cor-intermediaria);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.conteudo h2, .servicos h2 {
+    padding: 0;
+    font-size: 1.8rem;
+    border-bottom: solid 1px;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
+
+table, th, td {
+    border: solid 2px;
+    border-collapse: collapse; /* Remove o espaço entre as bordas */
+}
+
+
+caption {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+}
+
+th {
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    border-color: var(--cor-escura);
+    padding: 0.7rem;
+}
+
+td {
+    padding: 0.5rem;
+}
+
+th:first-child { text-align: left; }
+
+td:nth-child(2) { text-align: center;}
+
+th:last-child, td:last-child { text-align: right;}
+
+tr:nth-child(odd) {
+    background-color: var(--cor-clara);
+}
+
+
+
+  /*  Paseudo-elemento ::before (::after) */
+td:last-child { position: relative;}
+
+  td:last-child::before {
+    content: 'R$ ';
+    position: absolute;
+    left: 150px;
+
+}
+
+/* ------------------------------------------------------------------- */
+.conteudo h2::before { content: "🛒 ";}
+.servicos h2::before { content: "🛠️ ";}
+.contato h2::before { content: "📧 ";}
+
+.boximg {
+    text-align: center;
+
+}
+
+.boximg img {
+    border-radius: 100%; 
+    transition: 1s;
+    transform: scale(0.9);
+}
+
+/* Aplicamos o :hover e o :focus ao seletor de tag "a" em vez de aplicar no "img". Desta forma, o acionamento funcionará tanto com mouse quanto com teclado. */
+.boximg a:hover img, a:focus img {
+    border-radius: 8%;
+    transform: scale(1);
+}
+/* ------------------------------------------------------------------- */
+
+ form {
+    max-width: 500px;
+    margin: auto;
+    background-color: lightblue;
+ }
+
+ input, select, textarea {
+    border: none;
+    padding: 4px;
+    height: 40px;
+    border-radius: 4px;
+ }
+
+ textarea { height: auto; }
+
+ form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+ }
+
+ label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: 30%;
+ }
+
+
+ /* Pseudo-classe :not Permite criar exceções parauma regra. Nesete exemplo, estamos aplicando 70% de largura para tudo (*) dentro do "form div" EXCETO o "label". */
+ form div *:not(label) {
+    width: 70%;
+ }
+
+ button { 
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    border: none;
+    font-weight: bold;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+ }
+
+ button:hover, button:focus{
+    background-color: var(--cor-clara);
+    color: var(--cor-escura);
+    box-shadow: var(--cor-escura) 0 0 2px;
+ }
+ 
+
+
+/* ------------------------------------------------------------------- */
+/* Exercícios: regras condicionais (Media Queries) */
+
+/* 1) Crie uma regra condicional para telas a partir de 570px com as seguintes alterações
+
+- Esconder a palavra Menu
+- Habilitar o flex para a classe "menu"
+- Definir largura de 100% para os itens dentro do "menu"
+- Definir largura de 70% para o nav
+- Reduzir para 200px a altura da imagem contida no artigo Front-End*/
+
+@media screen and (min-width: 570px) {
+    nav h2 {display: none}
+
+    .menu {
+        display: flex;
+        
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    nav {
+        width: 70%;
+    }
+
+    .front-end img {
+        height: 150px;
+    }
+}
+
+/* 2) Crie uma regra condicional para telas a partir de 900px com as seguimtes alterações:
+- Aumentar o tamanho geral de todos os textos para 18px
+- Definir o tamanho máximo da classe limitador para 1000px*/
+
+
+@media screen and (min-width: 900px) {
+    html { font-size: 18px;}
+   .limitador { max-width: 1000px;}
+}

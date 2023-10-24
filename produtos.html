@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos-Simplicity</title>
+    <title>Produtos - Simplicity</title>
+    
+    <!-- CSS Externo -->
     <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- CSS Interno: 
+    No caso de conflito, as regras criadas aqui SEMPRE irão prevalecer. -->
+    <style>
+        .conteudo h2::before { content: "🛒 "; }
+    </style>
 </head>
-
 <body>
-
+    
     <header>
-
         <div class="limitador">
-
             <h1><a href="index.html">Simplicity</a></h1>
             <nav>
                 <h2><a href="">Menu &equiv; </a></h2>
@@ -28,51 +32,46 @@
     </header>
 
     <main>
-        <article class="limitador conteudo">
+        <article class="limitador conteudo produtos">
             <h2>Produtos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime obcaecati ea nemo blanditiis ipsum voluptatum nisi praesentium labore molestias eaque, tenetur voluptate commodi nulla ut neque saepe ratione temporibus quibusdam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo earum nisi aliquam nostrum labore quam, accusantium eius aliquid porro eveniet mollitia harum temporibus odit. Alias, quibusdam quae. Eligendi sit quis fugiat magnam at a provident, adipisci debitis asperiores. Aliquid, amet?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis expedita similique ab et inventore a quod fuga rerum. Autem facilis aliquam molestiae quia nisi ipsum voluptatem suscipit veritatis deserunt ratione!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit obcaecati nihil sed vel tempore, aliquid, enim, ipsam accusantium totam iste voluptates illum repellendus? At quaerat voluptas voluptate maxime quasi accusantium?</p>
+
 
             <table>
                 <caption>Nossos produtos</caption>
                 <tr>
                     <th>Produto</th>
-                    <th>prazo de entrega</th>
+                    <th>Prazo de entrega</th>
                     <th>Valor aproximado</th>
                 </tr>
-
                 <tr>
-                    <td>website</td>
+                    <td>Website</td>
                     <td>30 dias</td>
                     <td>7.500,00</td>
-
                 </tr>
-
                 <tr>
                     <td>Aplicativo</td>
                     <td>60 dias</td>
                     <td>15.000,00</td>
                 </tr>
-
                 <tr>
                     <td>Game</td>
                     <td>45 dias</td>
-                    <td>10,000.00</td>
-
+                    <td>10.000,00</td>
                 </tr>
-
                 <tr>
-                    <td>loja virtual</td>
+                    <td>Loja Virtual</td>
                     <td>60 dias</td>
-                    <td>9,500.00</td>
-        
+                    <td>9.500,00</td>
                 </tr>
-
             </table>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo eius officia soluta in eaque velit maxime nam. In nobis eligendi dolorum repudiandae, recusandae blanditiis. Numquam fugiat provident corporis expedita quidem?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro repellendus sed laborum inventore natus, quas voluptas, ipsum voluptatem ducimus, numquam eaque praesentium perspiciatis rerum tempore consequuntur illo minima quae reiciendis.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto eaque, ea sit magni officiis asperiores blanditiis officia fuga deserunt, impedit reiciendis expedita recusandae, qui omnis labore nihil optio reprehenderit amet?</p>
 
+
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis expedita similique ab et inventore a quod fuga rerum. Autem facilis aliquam molestiae quia nisi ipsum voluptatem suscipit veritatis deserunt ratione!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis expedita similique ab et inventore a quod fuga rerum. Autem facilis aliquam molestiae quia nisi ipsum voluptatem suscipit veritatis deserunt ratione!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis expedita similique ab et inventore a quod fuga rerum. Autem facilis aliquam molestiae quia nisi ipsum voluptatem suscipit veritatis deserunt ratione!</p>
 
         </article>
 
@@ -80,12 +79,11 @@
 
     <footer>
         <p>Simplicity é um site fictício desenvolvido
-            para fins educacionais &copy; <b>Senac Penha</b>
-            - <time>2023</time> </p>
+        para fins educacionais &copy; <b>Senac Penha</b>
+         - <time>2023</time> </p>
     </footer>
 
-
+    <script src="js/menu.js"></script>
 
 </body>
-
 </html>

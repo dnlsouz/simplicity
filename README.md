@@ -1,2 +1,2 @@
 # simplicity
- exemplo de site usando html, css e js
+ Exemplo de site usando HTML, CSS e JS
